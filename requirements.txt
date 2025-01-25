@@ -6,6 +6,6 @@ seaborn
 scikit-learn
 statsmodels
 pytest
-Flask==2.0.3
-gunicorn==20.1.0  # Required by Netlify for running Flask apps
-Werkzeug==2.0.3
+Flask
+gunicorn
+
