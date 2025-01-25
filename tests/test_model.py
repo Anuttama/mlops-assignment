@@ -1,8 +1,17 @@
-import pandas as pd
 import os
 import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from model.model import load_and_preprocess_data, train_test_split_data, train_and_evaluate_model
+
+# Adjust the Python path to include the root directory
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+sys.path.insert(0, parent_dir)
+
+from model.model import (  # noqa: E402
+    load_and_preprocess_data,
+    train_test_split_data,
+    train_and_evaluate_model,
+)
+
 
 def test_load_and_preprocess_data():
     dataset_path = "data/dataset.csv"
