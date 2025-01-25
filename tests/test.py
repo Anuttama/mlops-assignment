@@ -1,4 +1,3 @@
-import pytest
 import pandas as pd
 from model import load_and_preprocess_data, train_test_split_data, train_and_evaluate_model
 
