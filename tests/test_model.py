@@ -1,5 +1,8 @@
 import pandas as pd
-from model import load_and_preprocess_data, train_test_split_data, train_and_evaluate_model
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from model.model import load_and_preprocess_data, train_test_split_data, train_and_evaluate_model
 
 def test_load_and_preprocess_data():
     dataset_path = "data/dataset.csv"
@@ -7,12 +10,14 @@ def test_load_and_preprocess_data():
     assert df is not None
     assert "age" in df.columns
 
+
 def test_train_test_split_data():
     dataset_path = "data/dataset.csv"
     df = load_and_preprocess_data(dataset_path)
     X_train, X_test, y_train, y_test = train_test_split_data(df)
     assert X_train.shape[0] > 0
     assert y_train.shape[0] > 0
+
 
 def test_train_and_evaluate_model():
     dataset_path = "data/dataset.csv"
