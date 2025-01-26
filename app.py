@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask,request,app,jsonify,url_for,render_template
 import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -8,6 +8,11 @@ app = Flask(__name__)
 # Load the trained model from the pickle file
 with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
+
+
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 # Define a route to make predictions
 @app.route('/predict', methods=['POST'])
